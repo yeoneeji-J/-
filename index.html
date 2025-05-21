@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오늘도 나의 별은 빛나고 있을까?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ 오늘도 나의 별은 빛나고 있을까?</h1>
+        <div id="inputSection">
+            <p>당신의 이름과 생년월일을 입력해주세요.<br>처음 한 번만 입력하면, 다음부터는 자동으로 운세가 뜹니다.</p>
+            <input type="text" id="nameInput" placeholder="이름">
+            <input type="date" id="birthInput">
+            <button onclick="saveAndShowHoroscope()">운세 보기</button>
+        </div>
+        <div id="resultSection" style="display:none;">
+            <p id="greeting"></p>
+            <p id="horoscope"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

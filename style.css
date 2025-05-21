@@ -1,0 +1,29 @@
+
+body {
+    background: #0e0e2c;
+    color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+input, button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+button {
+    background-color: #5e60ce;
+    color: white;
+    cursor: pointer;
+}
