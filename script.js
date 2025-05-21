@@ -1,113 +1,66 @@
 
-const horoscopes = {
-  '양자리': {
-    조언: ['새로운 도전에 주저하지 마세요.', '마음을 열고 대화를 시작해보세요.'],
-    재미: ['길거리 공연을 보게 될지도 몰라요.', '동물 영상이 당신을 웃게 만들 거예요.'],
-    운: ['작은 일이 행운의 씨앗이 됩니다.', '오늘의 친절이 돌아올 거예요.'],
-    감성: ['햇살이 마음까지 비추는 하루입니다.', '오늘은 일기 쓰기 좋은 날이에요.']
-  },
-  '황소자리': {
-    조언: ['자신의 가치를 믿으세요.', '의견 충돌보다는 양보가 현명해요.'],
-    재미: ['옛 친구와의 연락이 반가움을 줄 거예요.', '무심코 본 광고가 웃음을 줍니다.'],
-    운: ['예상치 못한 선물이 생길지도 몰라요.', '편안한 하루가 기다리고 있어요.'],
-    감성: ['잔잔한 음악이 위로가 됩니다.', '어제보다 오늘이 더 나은 하루예요.']
-  },
-  '쌍둥이자리': {
-    조언: ['다양한 생각을 하나로 모아보세요.', '정보에 귀 기울이세요.'],
-    재미: ['온라인에서 웃긴 댓글을 발견할 거예요.', '혼자 중얼거리는 게 유쾌할 수 있어요.'],
-    운: ['지하철 자리 운이 좋아요!', '작은 배려가 큰 복으로 돌아옵니다.'],
-    감성: ['익숙한 거리가 새롭게 느껴질 거예요.', '바람의 감촉이 기억에 남아요.']
-  },
+function getZodiac(month, day) {
+    const zodiacs = [
+        { sign: "염소자리", from: [1, 1], to: [1, 19] },
+        { sign: "물병자리", from: [1, 20], to: [2, 18] },
+        { sign: "물고기자리", from: [2, 19], to: [3, 20] },
+        { sign: "양자리", from: [3, 21], to: [4, 19] },
+        { sign: "황소자리", from: [4, 20], to: [5, 20] },
+        { sign: "쌍둥이자리", from: [5, 21], to: [6, 21] },
+        { sign: "게자리", from: [6, 22], to: [7, 22] },
+        { sign: "사자자리", from: [7, 23], to: [8, 22] },
+        { sign: "처녀자리", from: [8, 23], to: [9, 22] },
+        { sign: "천칭자리", from: [9, 23], to: [10, 23] },
+        { sign: "전갈자리", from: [10, 24], to: [11, 22] },
+        { sign: "사수자리", from: [11, 23], to: [12, 24] },
+        { sign: "염소자리", from: [12, 25], to: [12, 31] }
+    ];
+    return zodiacs.find(z => 
+        (month === z.from[0] && day >= z.from[1]) ||
+        (month === z.to[0] && day <= z.to[1])
+    ).sign;
+}
 
-  '게자리': {
-    조언: ['감정을 솔직히 표현해보세요.', '하루의 끝에는 자신을 위로하세요.'],
-    재미: ['따뜻한 밥 냄새가 기분을 좋게 해요.', '반려동물과의 시간이 특별해요.'],
-    운: ['사소한 선택이 좋은 결과를 가져올 거예요.', '가족과의 대화에서 힌트를 얻어요.'],
-    감성: ['추억에 잠기기 좋은 날이에요.', '어릴 적 사진을 보면 미소가 나와요.']
-  },
-  '사자자리': {
-    조언: ['자신감 있는 태도가 기회를 부릅니다.', '솔직한 표현이 긍정적 결과를 가져와요.'],
-    재미: ['반짝이는 물건이 시선을 끌어요.', '생각지도 못한 칭찬을 들어요.'],
-    운: ['중요한 연락이 찾아올 수 있어요.', '길을 걷다 발견이 있어요.'],
-    감성: ['내 안의 열정을 느껴보세요.', '오늘은 당신이 주인공입니다.']
-  },
-  '처녀자리': {
-    조언: ['세부 사항에 신경 써보세요.', '정리정돈이 기분을 상쾌하게 합니다.'],
-    재미: ['사소한 성취에 기쁨을 느껴보세요.', '유쾌한 실수를 하게 될지도 몰라요.'],
-    운: ['작은 행운이 당신을 향하고 있어요.', '고민하던 일이 해결될 거예요.'],
-    감성: ['맑은 공기가 영혼을 맑게 해요.', '책 속 문장이 마음에 남아요.']
-  },
-  '천칭자리': {
-    조언: ['균형을 잃지 마세요.', '상대의 입장에서 생각해보세요.'],
-    재미: ['길거리 패션이 영감을 줄 수 있어요.', '우연히 멋진 사진을 찍게 돼요.'],
-    운: ['사소한 기회가 큰 변화를 불러옵니다.', '좋은 소식을 듣게 될 거예요.'],
-    감성: ['하늘을 올려다보며 생각에 잠겨보세요.', '감정의 균형을 찾아보세요.']
-  },
-  '전갈자리': {
-    조언: ['진심을 보여주는 것이 중요해요.', '직관을 믿어보세요.'],
-    재미: ['비밀스런 장소를 발견하게 될 거예요.', '추리소설이 끌릴지도 몰라요.'],
-    운: ['깊은 대화가 행운을 부를 수 있어요.', '뜻밖의 제안이 있을 수 있어요.'],
-    감성: ['깊은 감정을 느끼는 하루예요.', '혼자 있는 시간이 위로가 됩니다.']
-  },
-  '사수자리': {
-    조언: ['낙관적인 태도가 행운을 불러와요.', '목표를 향해 한 걸음 내딛어보세요.'],
-    재미: ['즉흥적인 행동이 재미를 줄 거예요.', '웃긴 영상을 공유하게 될 거예요.'],
-    운: ['여행 운이 좋습니다.', '뜻밖의 장소에서 기회를 만나요.'],
-    감성: ['자유로운 감정에 몸을 맡겨보세요.', '하늘을 보며 상상에 빠져보세요.']
-  },
-  '염소자리': {
-    조언: ['성실함이 빛을 발할 거예요.', '작은 노력의 결실이 있어요.'],
-    재미: ['계획한 일이 잘 풀리는 재미가 있어요.', '일상 속 성취감이 큽니다.'],
-    운: ['경제적인 면에서 좋은 소식이 있어요.', '기대 이상의 결과가 나옵니다.'],
-    감성: ['차분한 음악이 하루를 감싸줍니다.', '어두운 밤이 오히려 위로가 돼요.']
-  },
-  '물병자리': {
-    조언: ['다른 사람과 다른 당신만의 시각이 장점이에요.', '혁신적인 아이디어를 시도해보세요.'],
-    재미: ['우연한 발견이 큰 기쁨이 돼요.', '새로운 취미를 시작해보세요.'],
-    운: ['친구의 도움이 행운을 가져다줄 거예요.', '특별한 만남이 기다리고 있어요.'],
-    감성: ['자유로운 상상이 당신을 위로해요.', '별을 보며 사색해보세요.']
-  },
-  '물고기자리': {
-    조언: ['감정에 귀 기울이세요.', '직감이 중요한 하루입니다.'],
-    재미: ['꿈에서 본 장면이 실제와 겹칠지도 몰라요.', '예술적인 활동이 잘 어울립니다.'],
-    운: ['마음이 끌리는 선택이 정답입니다.', '운명의 장난 같은 일이 벌어질 수 있어요.'],
-    감성: ['감성적인 순간을 만끽하세요.', '눈물이 날 만큼 아름다운 일이 생깁니다.']
-  }
-};
+function getRandomHoroscope(sign) {
+    const messages = {
+        "양자리": "오늘은 당신에게 큰 기회가 찾아올 수 있습니다.",
+        "황소자리": "차분히 주변을 돌아보는 하루가 되어야 합니다.",
+        "쌍둥이자리": "새로운 인연이 생길지도 몰라요.",
+        "게자리": "가족과의 대화가 행복을 줍니다.",
+        "사자자리": "당신의 리더십이 빛나는 날입니다.",
+        "처녀자리": "작은 계획이 큰 결과로 이어질 수 있어요.",
+        "천칭자리": "균형을 잘 잡는 것이 포인트입니다.",
+        "전갈자리": "감정을 솔직하게 표현해보세요.",
+        "사수자리": "도전이 당신을 더 성장시킵니다.",
+        "염소자리": "꾸준함이 오늘의 열쇠입니다.",
+        "물병자리": "창의적인 아이디어가 떠오릅니다.",
+        "물고기자리": "감성을 믿고 행동하세요."
+    };
+    return `[${sign}] ` + (messages[sign] || "오늘은 좋은 일이 생길 것입니다!");
+}
 
-function getZodiacSign(month, day) {
-  const signs = [
-    [1, 20, '염소자리'], [2, 19, '물병자리'], [3, 20, '물고기자리'],
-    [4, 20, '양자리'], [5, 21, '황소자리'], [6, 21, '쌍둥이자리'],
-    [7, 23, '게자리'], [8, 23, '사자자리'], [9, 23, '처녀자리'],
-    [10, 23, '천칭자리'], [11, 23, '전갈자리'], [12, 23, '사수자리'],
-    [12, 31, '염소자리']
-  ];
-  for (let i = 0; i < signs.length; i++) {
-    const [m, d, sign] = signs[i];
-    if (month < m || (month === m && day <= d)) {
-      return sign;
+function saveAndShowHoroscope() {
+    const name = document.getElementById("nameInput").value;
+    const birth = document.getElementById("birthInput").value;
+    if (!name || !birth) return alert("이름과 생년월일을 모두 입력해주세요.");
+    localStorage.setItem("userName", name);
+    localStorage.setItem("birthDate", birth);
+    showHoroscope(name, birth);
+}
+
+function showHoroscope(name, birth) {
+    const date = new Date(birth);
+    const zodiac = getZodiac(date.getMonth() + 1, date.getDate());
+    document.getElementById("inputSection").style.display = "none";
+    document.getElementById("resultSection").style.display = "block";
+    document.getElementById("greeting").textContent = `${name}님의 오늘의 운세는...`;
+    document.getElementById("horoscope").textContent = getRandomHoroscope(zodiac);
+}
+
+window.onload = () => {
+    const name = localStorage.getItem("userName");
+    const birth = localStorage.getItem("birthDate");
+    if (name && birth) {
+        showHoroscope(name, birth);
     }
-  }
-  return '염소자리';
-}
-
-function showHoroscope() {
-  const name = document.getElementById("name").value;
-  const birthdate = document.getElementById("birthdate").value;
-  if (!name || !birthdate) {
-    alert("이름과 생일을 모두 입력해주세요!");
-    return;
-  }
-  const date = new Date(birthdate);
-  const zodiac = getZodiacSign(date.getMonth() + 1, date.getDate());
-  const messages = horoscopes[zodiac];
-  let output = "";
-  for (let key in messages) {
-    const randomMessage = messages[key][Math.floor(Math.random() * messages[key].length)];
-    output += `<div class="horoscope-section"><h3>${key}</h3><p>${randomMessage}</p></div>`;
-  }
-  document.getElementById("user-name").innerText = `${name}님의 오늘의 운세 (${zodiac})`;
-  document.getElementById("horoscope-output").innerHTML = output;
-  document.getElementById("result").style.display = "block";
-}
+};

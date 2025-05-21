@@ -1,31 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>오늘의 별자리 운세</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <title>오늘도 나의 별은 빛나고 있을까?</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🌌 오늘의 별자리 운세</h1>
-    <div class="form">
-      <label for="name">이름:</label>
-      <input type="text" id="name" placeholder="이름을 입력하세요" />
-
-      <label for="birth">생년월일:</label>
-      <input type="date" id="birth" />
-
-      <button class="button" onclick="generateHoroscope()">운세 보기</button>
+    <div class="container">
+        <h1>✨ 오늘도 나의 별은 빛나고 있을까?</h1>
+        <div id="inputSection">
+            <p>당신의 이름과 생년월일을 입력해주세요.<br>처음 한 번만 입력하면, 다음부터는 자동으로 운세가 뜹니다.</p>
+            <input type="text" id="nameInput" placeholder="이름">
+            <input type="date" id="birthInput">
+            <button onclick="saveAndShowHoroscope()">운세 보기</button>
+        </div>
+        <div id="resultSection" style="display:none;">
+            <p id="greeting"></p>
+            <p id="horoscope"></p>
+        </div>
     </div>
-
-    <div class="horoscope-box" id="result-box" style="display:none;">
-      <h2 class="horoscope-title" id="sign-name"></h2>
-      <div id="horoscope-text"></div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
