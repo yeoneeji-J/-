@@ -1,25 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>오늘도 나의 별은 빛나고 있을까?</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 사주 보기</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>✨ 오늘도 나의 별은 빛나고 있을까?</h1>
-        <div id="inputSection">
-            <p>당신의 이름과 생년월일을 입력해주세요.<br>처음 한 번만 입력하면, 다음부터는 자동으로 운세가 뜹니다.</p>
-            <input type="text" id="nameInput" placeholder="이름">
-            <input type="date" id="birthInput">
-            <button onclick="saveAndShowHoroscope()">운세 보기</button>
-        </div>
-        <div id="resultSection" style="display:none;">
-            <p id="greeting"></p>
-            <p id="horoscope"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <h1>✨ 내 사주 알아보기 ✨</h1>
+  <form id="saju-form">
+    <label>생년월일:
+      <input type="date" id="birth-date" required />
+    </label><br>
+    <label>출생 시간:
+      <select id="birth-hour">
+        <option value="23">23~01시(자)</option>
+        <option value="1">01~03시(축)</option>
+        <option value="3">03~05시(인)</option>
+        <option value="5">05~07시(묘)</option>
+        <option value="7">07~09시(진)</option>
+        <option value="9">09~11시(사)</option>
+        <option value="11">11~13시(오)</option>
+        <option value="13">13~15시(미)</option>
+        <option value="15">15~17시(신)</option>
+        <option value="17">17~19시(유)</option>
+        <option value="19">19~21시(술)</option>
+        <option value="21">21~23시(해)</option>
+      </select>
+    </label><br>
+    <label>성별:
+      <select id="gender">
+        <option value="male">남자</option>
+        <option value="female">여자</option>
+      </select>
+    </label><br><br>
+    <button type="submit">사주 보기</button>
+  </form>
+  <div id="result"></div>
+  <script src="script.js"></script>
 </body>
 </html>
