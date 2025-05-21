@@ -1,28 +1,60 @@
+/* 밤하늘 테마 - 단색 남색 배경 */
 body {
-    background: #0e0e2c;
-    color: #ffffff;
-    font-family: 'Noto Sans KR', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  background-color: #0b1d51;
+  color: #eee;
+  font-family: 'Nanum Gothic', sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
 .container {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
 }
-input, button {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
 }
-button {
-    background-color: #5e60ce;
-    color: white;
-    cursor: pointer;
+
+.form {
+  margin-bottom: 30px;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 80%;
+  border: none;
+  border-radius: 6px;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #eee;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #eee;
+  color: #0b1d51;
+}
+
+.horoscope-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.horoscope-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
 }
