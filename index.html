@@ -2,40 +2,30 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>별자리 운세</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>오늘의 별자리 운세</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
-    <h1>별자리 운세</h1>
-    <form id="userForm">
-      <input type="text" id="name" placeholder="이름" required />
-      <input type="date" id="birthdate" required />
-      <button type="submit">운세 보기</button>
-    </form>
+    <h1>🌌 오늘의 별자리 운세</h1>
+    <div class="form">
+      <label for="name">이름:</label>
+      <input type="text" id="name" placeholder="이름을 입력하세요" />
 
-    <div id="result" style="display:none;">
-      <h2 id="greeting"></h2>
-      <div class="result-section">
-        <h3>조언</h3>
-        <p id="advice"></p>
-      </div>
-      <div class="result-section">
-        <h3>재미</h3>
-        <p id="fun"></p>
-      </div>
-      <div class="result-section">
-        <h3>운세</h3>
-        <p id="luck"></p>
-      </div>
-      <div class="result-section">
-        <h3>감성</h3>
-        <p id="emotional"></p>
-      </div>
+      <label for="birth">생년월일:</label>
+      <input type="date" id="birth" />
+
+      <button class="button" onclick="generateHoroscope()">운세 보기</button>
+    </div>
+
+    <div class="horoscope-box" id="result-box" style="display:none;">
+      <h2 class="horoscope-title" id="sign-name"></h2>
+      <div id="horoscope-text"></div>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
