@@ -1,25 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>오늘도 나의 별은 빛나고 있을까?</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>오늘의 별자리 운세</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>✨ 오늘도 나의 별은 빛나고 있을까?</h1>
-        <div id="inputSection">
-            <p>당신의 이름과 생년월일을 입력해주세요.<br>처음 한 번만 입력하면, 다음부터는 자동으로 운세가 뜹니다.</p>
-            <input type="text" id="nameInput" placeholder="이름">
-            <input type="date" id="birthInput">
-            <button onclick="saveAndShowHoroscope()">운세 보기</button>
-        </div>
-        <div id="resultSection" style="display:none;">
-            <p id="greeting"></p>
-            <p id="horoscope"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>🌌 오늘의 별자리 운세</h1>
+    <p class="subtext">이름과 생년월일을 입력하고, 오늘의 운세를 확인하세요!</p>
+    
+    <form>
+      <label for="name">이름</label>
+      <input type="text" id="name" placeholder="홍길동" required />
+
+      <label for="birthdate">생년월일</label>
+      <input type="date" id="birthdate" required />
+
+      <button type="submit">🔮 운세 보기</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+  </div>
 </body>
 </html>
