@@ -1,17 +1,3 @@
-const horoscopeColors = {
-  "염소자리": "#f2a365",
-  "물병자리": "#5e60ce",
-  "물고기자리": "#3a86ff",
-  "양자리": "#ef476f",
-  "황소자리": "#ffd166",
-  "쌍둥이자리": "#06d6a0",
-  "게자리": "#118ab2",
-  "사자자리": "#f4a261",
-  "처녀자리": "#8ecae6",
-  "천칭자리": "#bc6c25",
-  "전갈자리": "#d62828",
-  "사수자리": "#ffb703"
-};
 
 const horoscopes = {
   '양자리': {
@@ -124,3 +110,4 @@ function showHoroscope() {
   document.getElementById("user-name").innerText = `${name}님의 오늘의 운세 (${zodiac})`;
   document.getElementById("horoscope-output").innerHTML = output;
   document.getElementById("result").style.display = "block";
+}
